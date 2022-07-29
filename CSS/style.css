@@ -80,3 +80,14 @@ button:hover{
 
 }
 
+#return_num{
+    position: absolute;
+    top: 50%;
+    left: 48%;
+padding: 15px;
+    background: linear-gradient(rgba(255,45,125,0.5),rgba(114, 200, 61, 0.5));
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 30px;
+}
