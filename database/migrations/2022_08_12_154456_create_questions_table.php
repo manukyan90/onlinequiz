@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreign('id')->on('subject')->onDelete('cascade');
             $table->timestamps();
         });
+
     }
 
     /**
