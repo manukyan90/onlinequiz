@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-       // $this->down();
-        Schema::create('questions', function (Blueprint $table) {
-            $table->id();
-            $table->text("title");
-            $table->unsignedBigInteger('subject_id')->index();
-            //$table->foreign('id')->on('subject')->onDelete('cascade');
-            $table->timestamps();
-        });
+        Schema::table('questions', function (Blueprint $table) {
 
+            //$table->unsignedBigInteger('subject_id')->index()->change();
+            $table->foreign('subject_id')
+                ->references('id')->on('subject')->onDelete('cascade');
+
+        });
     }
 
     /**
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions');
+        //
     }
 };
