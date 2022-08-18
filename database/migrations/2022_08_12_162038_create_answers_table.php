@@ -13,7 +13,6 @@ return new class extends Migration
      */
     public function up()
     {
-        $this->down();
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
             $table->text('title');

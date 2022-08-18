@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('students_answers', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->text('title');
-            $table->unsignedBigInteger('student_id');
-            $table->foreign('student_id')->references('id')
-                ->on('students')->onDelete('cascade');
-            $table->unsignedBigInteger('answer_id');
-            $table->foreign('answer_id')->references('id')
-                ->on('answers')->onDelete('cascade');
+            $table->unsignedBigInteger('subject_id')->index();
+            $table->foreign('subject_id')
+                ->references('id')->on('subject')->onDelete('cascade');
             $table->timestamps();
-
         });
     }
 
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students_answers');
+        Schema::dropIfExists('questions');
     }
 };

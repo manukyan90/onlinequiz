@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('questions', function (Blueprint $table) {
-
-            //$table->unsignedBigInteger('subject_id')->index()->change();
-            $table->foreign('subject_id')
-                ->references('id')->on('subject')->onDelete('cascade');
-
+        Schema::create('teachers', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->integer('subject_id');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('teachers');
     }
 };
