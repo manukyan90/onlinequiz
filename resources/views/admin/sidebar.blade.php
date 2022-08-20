@@ -7,7 +7,7 @@
                 onclick="w3_close()">Close &times;</button>
         <a href="admin/teacher" class="w3-bar-item w3-button">Teachers</a>
         <a href="admin/student" class="w3-bar-item w3-button">Students</a>
-        <a href="admin/subject" class="w3-bar-item w3-button">Subjects</a>
+        <a href="{{route('admin.subject')}}" class="w3-bar-item w3-button">Subjects</a>
         <a href="admin/question" class="w3-bar-item w3-button">Questions</a>
         <a href="admin/answer" class="w3-bar-item w3-button">Answers</a>
     </div>
