@@ -3,13 +3,12 @@
 @section('content')
 
     <div class="container">
-        <div class="table-responsive">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-8"><h2>Subjects List</h2></div>
                         <div class="col-sm-4">
-                            <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                            <a href="{{route('admin.subject.create')}}"><button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button></a>
                         </div>
                     </div>
                 </div>
@@ -31,8 +30,8 @@
                             <td>{{$subject->created_at}}</td>
                             <td>{{$subject->updated_at}}</td>
                             <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a href = "{{route('admin.subject.show', $subject->id)}}" class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xe8f4;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons"> &#xE254;</i></a>
                                 <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                             </td>
                         </tr>
@@ -40,6 +39,5 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </div>
 @endsection

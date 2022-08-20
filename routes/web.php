@@ -30,7 +30,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.home');
     Route::get('/subject', [App\Http\Controllers\SubjectController::class, 'index'])->name('admin.subject');
-
+    Route::get('/create', [App\Http\Controllers\SubjectController::class, 'create'])->name('admin.subject.create');
+    Route::post('/store', [App\Http\Controllers\SubjectController::class, 'store'])->name('admin.subject.store');
+    Route::get('/show',[App\Http\Controllers\SubjectController::class, 'show'])->name('admin.subject.show');
 });
 
 
