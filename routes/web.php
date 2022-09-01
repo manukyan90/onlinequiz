@@ -32,8 +32,30 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/subject', [App\Http\Controllers\SubjectController::class, 'index'])->name('admin.subject');
     Route::get('/create', [App\Http\Controllers\SubjectController::class, 'create'])->name('admin.subject.create');
     Route::post('/store', [App\Http\Controllers\SubjectController::class, 'store'])->name('admin.subject.store');
-    Route::get('/show',[App\Http\Controllers\SubjectController::class, 'show'])->name('admin.subject.show');
+    Route::get('/edit/{id}', [App\Http\Controllers\SubjectController::class, 'edit'])->name('admin.subject.edit');
+    Route::post('/update/{id}', [App\Http\Controllers\SubjectController::class, 'update'])->name('admin.subject.update');
+    Route::post('/delete/{id}', [App\Http\Controllers\SubjectController::class, 'delete'])->name('admin.subject.delete');
+
+    Route::resource('teachers',App\Http\Controllers\TeacherController::class);
+
+    Route::resource('students',App\Http\Controllers\StudentController::class);
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

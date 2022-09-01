@@ -5,7 +5,7 @@
         <form method="post" action="{{route('admin.subject.store')}}">
             @csrf
             <div class="form-group">
-                <label for="exampleInputEmail1"><b>Subject</b></label><br>
+                <label for="exampleInput"><b>Subject</b></label><br>
                 <input type="text" name="name" class="form-control" placeholder="Enter subject">
             </div><br>
 

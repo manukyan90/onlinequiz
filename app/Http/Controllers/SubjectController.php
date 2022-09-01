@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {
+
+
+
+
     public function index()
     {
         $subjects = Subject::all();
@@ -25,11 +29,28 @@ class SubjectController extends Controller
         return redirect()->route('admin.subject');
     }
 
-    public function show(Subject $subject)
+    public function edit($id)
     {
-        return view('admin.subject.show', compact('subject'));
+        $data =Subject::find($id);
+        return view('admin.subject.edit', compact('data'));
     }
 
+    public function update(Request $request, $id)
+    {
+        $subject = Subject::find($id);
+        $subject->name = $request->name;
+        $subject->save();
+        return redirect()->route('admin.subject');
+    }
+
+    public function delete($id)
+    {
+
+        $subject = Subject::find($id);
+        $subject->delete();
+        return redirect()->route('admin.subject');
+
+    }
 
 }
 

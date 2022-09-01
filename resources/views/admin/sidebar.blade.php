@@ -10,8 +10,8 @@
     <div class="w3-sidebar w3-bar-block w3-dark-grey w3-animate-left" style="display:none" id="mySidebar">
         <button class="w3-bar-item w3-button w3-large"
                 onclick="w3_close()">Close &times;</button>
-        <a href="admin/teacher" class="w3-bar-item w3-button"><i style='font-size:24px' class='fas'>&#xf51c;</i> Teachers</a>
-        <a href="admin/student" class="w3-bar-item w3-button"><i style='font-size:24px' class='fas'>&#xf501;</i>
+        <a href="{{route('teachers.index')}}" class="w3-bar-item w3-button"><i style='font-size:24px' class='fas'>&#xf51c;</i> Teachers</a>
+        <a href="{{route('students.index')}}" class="w3-bar-item w3-button"><i style='font-size:24px' class='fas'>&#xf501;</i>
              Students</a>
         <a href="{{route('admin.subject')}}" class="w3-bar-item w3-button"><i style='font-size:24px' class='fas'>&#xf518;</i>
             Subjects</a>
