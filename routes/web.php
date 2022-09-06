@@ -40,6 +40,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
 
     Route::resource('students',App\Http\Controllers\StudentController::class);
 
+    Route::resource('questions', App\Http\Controllers\QuestionController::class);
+
+    Route::resource('answers', App\Http\Controllers\AnswerController::class);
+
 });
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TeacherRequest;
 use App\Models\Subject;
 use App\Models\Teacher;
 use http\Exception\InvalidArgumentException;
@@ -35,8 +36,9 @@ class TeacherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TeacherRequest $request)
     {
+        $validated = $request->validated();
         Teacher::create($request->all());
 
         return redirect()->route('teachers.index');
@@ -75,6 +77,7 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
+
         $teacher->update($request->all());
         return redirect()->route('teachers.index');
     }

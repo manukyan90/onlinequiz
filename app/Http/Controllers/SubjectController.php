@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SubjectRequest;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 
@@ -22,8 +23,9 @@ class SubjectController extends Controller
         return view('admin.subject.create');
     }
 
-    public function store(Request $request)
+    public function store(SubjectRequest $request)
     {
+        $validated = $request->validated();
         Subject::create($request->all());
 
         return redirect()->route('admin.subject');

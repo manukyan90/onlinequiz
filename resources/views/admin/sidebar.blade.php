@@ -15,9 +15,9 @@
              Students</a>
         <a href="{{route('admin.subject')}}" class="w3-bar-item w3-button"><i style='font-size:24px' class='fas'>&#xf518;</i>
             Subjects</a>
-        <a href="admin/question" class="w3-bar-item w3-button"><i style='font-size:24px' class='far'>&#xf059;</i>
+        <a href="{{route('questions.index')}}" class="w3-bar-item w3-button"><i style='font-size:24px' class='far'>&#xf059;</i>
             Questions</a>
-        <a href="admin/answer" class="w3-bar-item w3-button"><i style='font-size:24px' class='far'>&#xf044;</i>
+        <a href="{{route('answers.index')}}" class="w3-bar-item w3-button"><i style='font-size:24px' class='far'>&#xf044;</i>
              Answers</a>
     </div>
 
