@@ -3,6 +3,11 @@
 @section('content')
     <div class="container">
         <form  method="get" action="{{route('teachers.index')}}">
+            <div class="input-group" >
+                <div>
+                    <img src="/{{$teacher->image_url}}" width="100" height="100"><br><br>
+                </div>
+            </div>
             <table class="table table-striped">
                 <thead>
                     <tr>

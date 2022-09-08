@@ -47,7 +47,14 @@
 
                         </td>
                     </tr>
-            @endforeach
+
+                 @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-lg-auto">
+            {{$teachers->links()}}
         </div>
     </div>
+
 @endsection

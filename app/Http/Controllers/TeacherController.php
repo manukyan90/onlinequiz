@@ -14,8 +14,8 @@ class TeacherController extends Controller
 
     public function index()
     {
-
-        $teachers =Teacher::with(['subject'])->get();
+        $teachers = Teacher::paginate(3);
+        //$teachers =Teacher::with(['subject'])->get();
         return  view('admin.teachers.index', compact('teachers'));
     }
 
@@ -39,8 +39,20 @@ class TeacherController extends Controller
     public function store(TeacherRequest $request)
     {
         $validated = $request->validated();
-        Teacher::create($request->all());
+//        Teacher::create($request->all());
 
+        $teacher = new Teacher();
+        $teacher->name = $request->name;
+        $teacher->email = $request->email;
+        $teacher->subject_id = $request->subject_id;
+
+        if ($request->hasFile('image_url')){
+            $file = $request->file('image_url');
+            $fileName = time().'.'.$request->image_url->extension();
+            $request->image_url->storeAs('uploads', $fileName);
+            $teacher->image_url='uploads/'.$fileName;
+        }
+            $teacher->save();
         return redirect()->route('teachers.index');
     }
 
@@ -77,8 +89,18 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-
         $teacher->update($request->all());
+
+        if ($request->hasFile('image_url')){
+            $file = $request->file('image_url');
+            $fileName = time().'.'.$request->image_url->extension();
+            $request->image_url->storeAs('uploads', $fileName);
+            $teacher->image_url='uploads/'.$fileName;
+        }
+        $teacher->save();
+
+
+
         return redirect()->route('teachers.index');
     }
 
