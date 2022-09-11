@@ -45,7 +45,12 @@
 
                         </td>
                     </tr>
-            @endforeach
+                @endforeach
+                </tbody>
+            </table>
+            <div class="mt-5">
+                {{$questions->links()}}
+            </div>
         </div>
     </div>
 @endsection

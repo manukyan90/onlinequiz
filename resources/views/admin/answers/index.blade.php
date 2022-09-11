@@ -48,6 +48,11 @@
                         </td>
                     </tr>
             @endforeach
+            </tbody>
+            </table>
+            <div class="mt-5">
+                {{$answers->links()}}
+            </div>
         </div>
     </div>
 @endsection

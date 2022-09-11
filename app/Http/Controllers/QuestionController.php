@@ -15,8 +15,8 @@ class QuestionController extends Controller
      */
     public function index()
     {
-
-        $questions =Question::with(['subject'])->get();
+        $questions = Question::paginate(3);
+       // $questions =Question::with(['subject'])->get();
         return  view('admin.questions.index', compact('questions'));
     }
 

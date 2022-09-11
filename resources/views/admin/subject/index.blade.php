@@ -45,7 +45,9 @@
                     @endforeach
                     </tbody>
                 </table>
-
+                <div class="mt-5">
+                    {{$subjects->links()}}
+                </div>
             </div>
 
     </div>

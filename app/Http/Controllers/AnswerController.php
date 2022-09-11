@@ -15,7 +15,8 @@ class AnswerController extends Controller
      */
     public function index()
     {
-        $answers =Answer::with(['question'])->get();
+        $answers = Answer::paginate(3);
+        //$answers =Answer::with(['question'])->get();
         return  view('admin.answers.index', compact('answers'));    }
 
     /**

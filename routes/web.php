@@ -1,6 +1,12 @@
 <?php
 
+use App\Mail\SendMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,34 +50,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
 
     Route::resource('answers', App\Http\Controllers\AnswerController::class);
 
+
+
+    Route::get('/email', [MailController::class, 'create']);
+    Route::post('/email', [MailController::class, 'sendEmail'])->name('send.mail');
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*Route::get('/admin', function () {
-       if(Auth::check()){
-            return view('welcome');
-        }
-       return redirect(\route('login'));
-});*/
